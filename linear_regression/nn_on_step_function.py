@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-# Step function (-1 to 1 => 1)
+# Step function (-1 to 1 => 1, otherwise 0)
 def f(x):
     a = (-1 <= x)
     b = (x <= 1)

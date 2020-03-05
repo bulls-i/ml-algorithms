@@ -192,7 +192,7 @@ def test():
         num_workers=num_workers)
 
     tot_correct = 0
-    tot_itr = 20
+    tot_itr = 4
     for (i, (X, Y)) in enumerate(testloader):
         yhat = model(X)
         y_pred = torch.argmax(yhat, dim = 1)
@@ -200,9 +200,8 @@ def test():
         tot_correct += correct
         if i % tot_itr == tot_itr - 1:
             print(str(i), 'Batch Accuracy', str(correct / Y.size()[0] * 100))
-        
-        # Pick a sample and plot
-        # imshow(X[0], ('Dog' if y_pred[0] == 0 else 'Cat'))
+            # Pick a sample and plot
+            imshow(X[0], ('Dog' if y_pred[0] == 0 else 'Cat'))
         
     print('Accuracy on the test set', tot_correct / testloader.dataset.__len__() * 100)
 ## end of test() 
